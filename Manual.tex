@@ -1,0 +1,120 @@
+%!TEX root =  tfg.tex
+\chapter{Conception de la solution et mise en oeuvre}
+
+\begin{quotation}[Novelist]{Ernest Hemingway (1899--1961)}
+The good parts of a book may be only something a writer is lucky enough to overhear or it may be the wreck of his whole damn life -- and one is as good as the other.
+\end{quotation}
+
+\begin{abstract}
+Resumen de lo que va a ocurrir en el capítulo. ¿Cuál es el objetivo que tenemos con este capítulo?
+\end{abstract}
+
+\section{Réalisation de la cartographie des données}
+\subsection{Problématique}
+Le problème ici est de pouvoir tracer le parcours d’une donnée depuis son entrée dans l’entreprise jusqu’à sa sortie ou sa destruction. Comment est créée l’information ? Où est-elle stockée ? Combien de temps est-elle stockée ? Quel est son procédé de destruction ? Qui a accès à cette information ? Comment cette information est-elle gardée en sécurité ?
+
+\subsection{Cartographie}
+Pour se faire l’on doit recenser un certain nombre d’éléments lors de la cartographie des processus :
+\begin{itemize}
+    \item[-] \textbf{Le nom de l’information : }identifiant unique de l’information au sein de l’entreprise ;
+    \item[-] \textbf{Le propriétaire de l’information : }responsable de la gestion de l’information ;
+    \item[-] \textbf{Le format de l’information : }format physique ou numérique principalement ;
+    \item[-] \textbf{Les responsabilités liées à l’information : }Propriété, entités qui y accèdent et droits d’accès ;
+    \item[-] \textbf{L’impact que l’information peut avoir sur l’entreprise : }conformité, opérationnel, réputation, financier ;
+    \item[-] \textbf{Ses besoins de sécurité : }en termes de confidentialité, d’intégrité et de disponibilité ;
+    \item[-] \textbf{Canaux de diffusion : }SIs sollicités, systèmes et réseaux utilisés pour le transfert de l’information ;
+    \item[-] \textbf{Les règles de marquage applicable :}lois et règles applicables sur l’information ;
+    \item[-] \textbf{Le cycle de vie de la donnée : }temps de conservation jusqu’à étape du processus
+    \item[-] \textbf{Le support de stockage : }Cloud, Bases de données, serveurs…
+    \item[-] \textbf{La conservation : }temps de conservation total de l’information ;
+    \item[-] \textbf{Le procédé de destruction de l’information ;}
+    \item[-] \textbf{Les mesures de sécurité appliquées dans l’entreprise.}
+\end{itemize}
+Un extrait de cette cartographie est fournie dans un document annexe nommé « Cartographie des traitements ».
+
+Il est important de faire ressortir les échelles de classification suivant les 3 principes de la sécurité : confidentialité, intégrité, disponibilité. Le tableau ci-dessous fournit les échelles de classification que nous avons retenue :
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c}
+        \hline
+        \multicolumn{4}{|c|}{Echelle de confidentialité} \\
+         Confidentialité & Description de l'expression du besoin & Niveau d'impact redouté & Exemple  \\
+         Confidentiel & Information ayant un impact significatif sur l’entreprise si elle était amenée à être divulguée en dehors de personnes identifiées & 4 & Préparation d’une nouvelle offre de service \\
+         A usage restreint & Information dont l’accès est restreint au personnel (interne) impliqué & 3 & Dossier de mission \\
+         A usage interne & Information dont la divulgation en dehors de l’entreprise peut nuire à celle ci & 2 & Organigramme  l’entreprise \\
+         Public & Information qui peut être rendue publique sans impact pour l’entreprise ou l’entité associée & 1 & Adresse du cabinet \\
+         \hline
+        \multicolumn{4}{|c|}{Echelle d'Intégrité} \\
+        Intégrité & Description de l'expression du besoin & Niveau d'impact redouté & Exemple \\
+        Elevé & Information dont l’altération provoquerait un impact élevé sur l’entreprise & 3 & Données financières de l'entreprise\\
+        Moyen & Information dont l’altération aura un impact important sur l’entreprise & 2 & Contenu du site internet de Mazars Cameroun \\
+        Faible & Toute altération de l’information aura un impact faible sur l’entreprise & 1 & Livret de présentation Mazars Cameroun \\
+        \hline
+        \multicolumn{4}{|c|}{Echelle de disponibilité}\\
+        Disponibilité & Description de l'expression du besoin & Niveau d'impact redouté & Exemple \\
+        Elevé & Indisponibilité non tolérée. Toute indisponibilité aura un impact élevé sur l’entreprise & 3 & Serveur de messagerie \\
+        Moyen & Toute indisponibilité aura un impact important sur l’entreprise & 2 & GESTRAS \\
+        Faible & L’indisponibilité a un impact faible pour l’entreprise & 1 & Site Web \\
+        \hline 
+    \end{tabular}
+\end{center}
+\section{Modélisation des processus métier}
+Le tableau ci-dessous présente un récapitulatif des processus métiers que l’on a pu recenser suivant le corps de métier au sein de la structure.
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+         Corps de métier & Nom du processus  \\
+         \multirow{8}{4em}{Ressources Humaines} & Recrutement \\
+         &Mise en Service \\
+         & Envoi en formation \\
+         & Traitement de la paie \\
+         & Gestion des évaluations \\
+         & Départ en congés \\
+         & Renvoi/Démission \\
+         & Archivage \\
+         \hline
+         \multirow{4}{2em}{Tax/Legal} & Ouverture d'une mission \\
+         & Organisation des documents collectés pour une mission \\
+         & Clôture d’une mission \\
+         & Archivage \\
+         \hline
+         \multirow{6}{2em}{Audit} & Création d'une mission \\
+         & Traitement du dossier d’audit \\
+         & Gestion du dossier de mission \\
+         & Gestion du dossier permanent \\
+         & Gestion de la fin d’une mission \\
+         & Archivage \\
+         \hline
+         \multirow{3}{2em}{Equipe IT} & Stockage \\
+         & Sauvegarde \\
+         & Archivage \\
+         \hline
+         \multirow{2}{2em}{Administration et Finances}
+         & Traitement des informations bancaires et financières \\
+         \hline
+         Business Development & Traitement des données utilisées pour les appels d’offres, proposition de service \\
+    \end{tabular}
+\end{center}
+La description de chaque processus est fournie dans l’annexe « Cartographie des traitements ».
+\textit{Département RH}
+Le département RH possède déjà ces propres processus, l'on a donc proposé des améliorations aux processus existants.
+
+\textit{Département Audit}
+\textit{Département Tax/Legal}
+\textit{Administration et Finances}
+\section{Rédaction des procédures}
+A la suite de la classification effectuée, sur la base des besoins en sécurité des biens essentiels et sur les mesures de sécurité à mettre en place, nous avons rédigé des procédures renseignées dans le « Manuel de procédures » de l’entreprise.
+
+\section{Mise en oeuvre des procédures}
+\textbf{Plan de déploiement}
+\begin{tabular}{c|c}
+    Responsables des mesures de sécurité identifiées & Le délégué à la protection des données(DPO)  \\
+     Echéances de déploiement & Aucune échéance ne peut être fournie car toutes les politiques et procédures n’ont pas encore été mises en place \\
+     Ressources nécessaires & - \\
+     Propriétaires de l'information & Délégué à la protection des données \\
+     Responsable du suivi et du maintien de la classification & Délégué à la protection des données \\
+     Parties prenantes impliquées dans la revue de la classification & \begin{itemize}
+         \item[-] Délégué à la protection des données (DPO)
+         \item[-] Tout membre du personnel ayant été sensibilisé sur la classification des données
+     \end{itemize}\\
+\end{tabular}

@@ -1,0 +1,100 @@
+% A sample model to write a TFG project
+
+% IMPORTANT!!! Substitute "draft" with "final" to render the final version of the TFG 
+\documentclass[titlepage,openright,twoside,a4paper,draft,12pt,french]{book}
+
+% Configuring the environment to support spanish characters.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[frenchb]{babel}
+\selectlanguage{french}
+
+\usepackage[pdftex,final]{graphicx}
+
+% Style package
+\usepackage{trinidad-TfG}
+% Font Package (Palatino)
+\usepackage{mathpazo}
+% Packages for specific capabilities
+\usepackage{rotating} % for text rotation in tables
+\usepackage{multirow} % for multirow in tables
+\usepackage{subfigure} % Place subfigures in figure environment
+% Packages for specific symbols
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{eurosym} % Euro symbol
+\usepackage{bbding} % for \XSolidBrush
+\usepackage{pifont} % for \ding{55} (a check mark)
+
+%Defining the folders on the images
+\graphicspath{ {figures/Chap2/} }
+
+\author{Nombre del Alumno}{Grado en Ingeniería Informática - Especialidad}{D.~}{12345678A}
+\authorURL{http://www.lsi.us.es/~trinidad}
+\authorEMail{fmenekeu@gmail.com}
+\setTitle{Rapport de Stage Pré-ingénieur}
+%\setSubtitle{No subtitle}
+\setUniversity{Ecole Polytechnique de Yaoundé}
+\copyrightText{Pon aquí cuestiones acerca del copyright}
+\supervisor{MAHI NKAK Paul}{Ing.~}{Manager Département Consulting}
+
+
+
+\makeglossaries
+\begin{document}
+\makeTitlePage
+
+\pagestyle{empty}
+\begin{dedication}
+Tu dedicatoria aquí
+\end{dedication}
+\pagenumbering{roman}
+\pagestyle{trinidadPhD}
+
+\input{agradecimientos}
+\input{resumen}
+
+\tableofcontents
+\listoffigures
+\listoftables
+\listoftodos
+\newpage
+
+\pagenumbering{arabic}
+\input{acronyms}
+
+\part{Introdution}
+\input{Contexto}
+
+\part{Concepts théoriques et méthodologiques}
+\input{Metodologia}
+
+
+\part{Etats des lieux}
+
+\input{Arranque}
+
+\part{Conception de la solution et mise en oeuvre}
+
+\input{Manual}
+%saut de page
+\input{Conclusiones}
+
+
+
+%Saut de page ici
+\appendix
+
+\input{ejemplo}
+
+
+\glossarystyle{long}
+\printglossaries
+\newpage
+
+\bibliographystyle{abbrvnat}
+\addcontentsline{toc}{chapter}{Referencias bibliográficas}
+\bibliography{referencias}
+
+\end{document} 
